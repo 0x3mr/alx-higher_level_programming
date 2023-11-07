@@ -1,44 +1,86 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "lists.h"
 
 /**
- * is_palindrome - function to call check_pal to
- *                 see if list is palindrome
+ * is_palindrome - Checks if a singly linked list is a palindrome
+ * @head: the head of singly linked list
  *
- * @head: ptr to beginning of list
- *
- * Return: 0 if not palindrome, else 1
+ * Return: (0) if it is not a palindrome, (1) if it's
 */
+
 int is_palindrome(listint_t **head)
 {
-	if (head == NULL || *head == NULL)
-	{
-		return (1);
-	}
+    listint_t *start = NULL, *end = NULL;
+    unsigned int i = 0, len = 0, len_cyc = 0, len_list = 0;
 
-	return (check_pal(head, *head));
+    if (head == NULL)
+        return (0);
+
+    if (*head == NULL)
+        return (1);
+    
+    start = *head;
+    len = listint_len(start);
+    len_cyc = len * 2;
+    len_list = len_cyc - 2;
+    end = *head;
+
+    for (; i < len_cyc; i = i + 2)
+    {
+        if (start[i].n != end[len_list].n)
+            return (0);
+
+        len_list = len_list - 2;
+    }
+
+    return (1);
 }
 
 /**
- * check_pal - function to check if
- *             list is palindrome
+ * get_nodeint_at_index - gets a node from a linked list
+ * @head: the head of the linked list
+ * @index: index to find in the linked list
  *
- * @head: ptr to beginning of list
- * @last: ptr to end of list
- *
- * Return: 0 if not palindrom, else 1
+ * Return: specific node of the linked list
 */
-int check_pal(listint_t **head, listint_t *last)
+
+listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-	if (last == NULL)
+	listint_t *current = head;
+	unsigned int iter_times = 0;
+
+	if (head)
 	{
-		return (1);
+		while (current != NULL)
+		{
+			if (iter_times == index)
+				return (current);
+
+			current = current->next;
+			++iter_times;
+		}
 	}
 
-	if (check_pal(head, last->next) && (*head)->n == last->n)
+	return (NULL);
+}
+
+/**
+ * slistint_len - counts of elements in a linked list
+ * @h: the linked list to count
+ *
+ * Return: number of elements in the linked list
+*/
+
+size_t listint_len(const listint_t *h)
+{
+	int lenght = 0;
+
+	while (h != NULL)
 	{
-		*head = (*head)->next;
-		return (1);
+		++lenght;
+		h = h->next;
 	}
 
-	return (0);
+	return (lenght);
 }
