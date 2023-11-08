@@ -6,8 +6,7 @@ last_digit = str(number)
 
 if int(last_digit[-1]) > 5:
     print(f"Last digit of {number} is {int(last_digit[-1])} and is greater than 5")
-elif int(last_digit[-1]) == 0:
+if int(last_digit[-1]) == 0:
     print(f"Last digit of {number} is {int(last_digit[-1])} and is 0")
-
 if int(last_digit[-1]) < 6 and int(last_digit[-1]) != 0:
     print(f"Last digit of {number} is {int(last_digit[-1])} and is less than 6 and not 0")
