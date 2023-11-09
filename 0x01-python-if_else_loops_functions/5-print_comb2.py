@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
-printf = ""
+send = ""
 
 for num in range(0, 100):
     if num in range(0, 10):
-        printf += f"0{num}, "
+        send += f"0{num}, "
     elif num == 99:
-        printf += "99"
+        send += "99"
     else:
-        printf += f"{num}, "
-print(printf, end='')
+        send += f"{num}, "
+print(send, end='')
