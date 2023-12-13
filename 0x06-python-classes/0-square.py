@@ -4,6 +4,7 @@
 square class
 """
 
+
 class Square:
     """
     square class
