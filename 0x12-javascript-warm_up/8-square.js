@@ -3,7 +3,7 @@
 
 const args = process.argv;
 const first = parseInt(args[2], 10);
-let i;
+let i, j;
 
 if (!isNaN(first)) {
     if (first === 1) {
@@ -15,7 +15,7 @@ if (!isNaN(first)) {
             for (i = 0; i < first; i++) {
                 process.stdout.write("X");
             }
-            console.log(" ");
+            console.log();
         }
     }
 } else {
