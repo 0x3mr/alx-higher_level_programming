@@ -1,23 +1,17 @@
 #!/usr/bin/node
-// a script that prints My number: <first argument converted in integer> if the first argument can be converted to an integer
+// Prnts a square of a specified size
 
 const args = process.argv;
-const first = parseInt(args[2], 10);
-let i, j;
+const size = parseInt(args[2], 10);
+const row = [];
 
-if (!isNaN(first)) {
-    if (first === 1) {
-        console.log("X");
-    } else if (first <= 0) {
-        // nothing
-    } else {
-        for (j = 0; j < first; j++) {
-            for (i = 0; i < first; i++) {
-                process.stdout.write("X");
-            }
-            console.log();
-        }
-    }
+if (isNaN(size)) {
+  console.log('Missing size');
 } else {
-    console.log("Missing Size");
+  for (let i = 0; i < size; i++) {
+    row.push('X');
+  }
+  for (let i = 0; i < size; i++) {
+    console.log(row.join(''));
+  }
 }
