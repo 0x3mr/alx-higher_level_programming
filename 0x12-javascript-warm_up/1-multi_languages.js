@@ -1,9 +1,5 @@
 #!/usr/bin/node
-// Prints the lines below obviously
-
-const firstLine = 'C is fun';
-const secondLine = 'Python is cool';
-const thirdLine = 'Javascript is amazing';
-
-console.log(firstLine + '\n' + secondLine + '\n' +
-                thirdLine);
+const words = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
+for (let i = 0; i < words.length; i++) {
+  console.log(words[i]);
+}
