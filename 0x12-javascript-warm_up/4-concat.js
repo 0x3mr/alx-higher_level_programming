@@ -1,5 +1,3 @@
 #!/usr/bin/node
-// script that prints two arguments passed to it
-const args = process.argv;
-
-console.log(args[2] + " is " + args[3]);
+const myVar = process.argv.slice(2);
+console.log(myVar[0] + ' is ' + myVar[1]);
