@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """MyInt class module"""
 
-
 class MyInt(int):
     """A MyInt class"""
     def __eq__(self, other):
